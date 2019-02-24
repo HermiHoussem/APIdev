@@ -1,0 +1,17 @@
+houssem_front:
+    resource: "@HoussemFrontBundle/Resources/config/routing.yml"
+    prefix:   /
+
+houssem_back:
+    resource: "@HoussemBackBundle/Resources/config/routing.yml"
+    prefix:   /
+
+my_app_user:
+    resource: "@MyAppUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+app:
+    resource: '@AppBundle/Controller/'
+    type: annotation
+fos_user:
+    resource: "@FOSUserBundle/Resources/config/routing/all.xml"
