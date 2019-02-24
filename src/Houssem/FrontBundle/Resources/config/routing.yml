@@ -1,0 +1,18 @@
+houssem_front_homepage:
+    path:     /
+    defaults: { _controller: HoussemFrontBundle:Default:index }
+front_homepage:
+    path:     /HomeFront
+    defaults: { _controller: HoussemFrontBundle:Produit:home }
+Produits:
+    path:     /Produits
+    defaults: { _controller: HoussemFrontBundle:Produit:produits }
+Contact:
+    path:     /Contact
+    defaults: { _controller: HoussemFrontBundle:Produit:contact }
+Ressources:
+    path:     /Ressources
+    defaults: { _controller: HoussemFrontBundle:Produit:ressources }
+user_logout:
+    path:   /logout
+

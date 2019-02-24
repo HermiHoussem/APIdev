@@ -1,0 +1,59 @@
+{% extends 'HoussemBackBundle::BackLayout.html.twig' %}
+{% block content %}
+<div class="container-fluid">
+    <!-- Start Page Content -->
+    <div class="row">
+        <div class="col-12">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Data Export</h4>
+                    <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                    <div class="table-responsive m-t-40">
+                        <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                            <thead>
+                            <tr>
+                                <th>Num</th>
+                                <th>Nom</th>
+                                <th>Catégorie</th>
+                                <th>Description</th>
+                                <th>Image</th>
+                                <th>Action</th>
+
+                            </tr>
+                            </thead>
+
+                            <tbody>
+                           {% for v in voitures %}
+                            <tr>
+                                <td>{{ v.id }}</td>
+                                <td>{{ v.nom }}</td>
+                                <td>{{ v.categorie }}</td>
+                                <td>{{ v.description }}</td>
+                                <td><img src="{{ asset('uploads/images/' ~ v.image) }}" height="100px" width="250px"></td>
+                                <td> <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="{{ path('SuppProduit',{'id':v.id}) }}">Supprimer</a></li>
+                                            <li><a href="{{ path('ModifProduit',{'id':v.id}) }}">Modifier</a></li>
+
+                                        </ul>
+                                    </div></td>
+
+                            </tr>
+{% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+            {% endblock content%}

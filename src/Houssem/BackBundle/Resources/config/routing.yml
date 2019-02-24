@@ -1,0 +1,33 @@
+houssem_back_homepage:
+    path:     /
+    defaults: { _controller: HoussemBackBundle:Default:index }
+_back_homepage:
+    path:     /HomeBack
+    defaults: { _controller: HoussemBackBundle:Home:home }
+Ajout:
+    path:     /AjoutBack
+    defaults: { _controller: HoussemBackBundle:Home:ajout }
+Affichage:
+    path:     /AffichageBack
+    defaults: { _controller: HoussemBackBundle:Home:affichage }
+SuppProduit:
+    path:     /SuppProduit/{id}
+    defaults: { _controller: HoussemBackBundle:Home:suppproduit }
+ModifProduit:
+    path:     /ModifProduit/{id}
+    defaults: { _controller: HoussemBackBundle:Home:modifproduit }
+AffichageContrat:
+    path:     /AffichageContrat
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:affichageC }
+AjoutContrat:
+    path:     /AffichageAvantAjout
+    defaults: { _controller: HoussemBackBundle:Client:afficherCli }
+AjoutContrats:
+    path:     /AjoutContrats/{id}/{nom}/{prenom}
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:ajoutcontrat }
+SuppContrats:
+    path:     /SuppContrats/{id}
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:suppcontrat }
+ModifContrats:
+    path:     /ModifContrats/{id}
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:modifcontrat }

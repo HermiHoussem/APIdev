@@ -1,0 +1,83 @@
+{% extends 'HoussemBackBundle::BackLayout.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Export</h4>
+                        <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                        <div class="table-responsive m-t-40">
+                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>num</th>
+                                    <th>Date mise en circulation</th>
+                                    <th>Usage</th>
+                                    <th>valeur</th>
+                                    <th>puissance</th>
+                                    <th> date debut</th>
+                                    <th> date fin</th>
+                                    <th>vol</th>
+                                    <th>incendie</th>
+                                    <th>bris</th>
+                                    <th>assistance</th>
+                                    <th>Tout risques</th>
+                                    <th>Action</th>
+
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for c in contrat %}
+                                <tr>
+
+                                    <td>{{ c.id }}</td>
+
+
+                                    <td> {{ c.DateMEC|date('Y-m-d') }}</td>
+                                    <td>{{ c.usage }}</td>
+                                    <td>{{ c.valeur }}</td>
+                                    <td>{{ c.Puissance }}</td>
+                                    <td>{{ c.Datedebut|date('Y-m-d') }}</td>
+                                    <td>{{ c.datefin|date('Y-m-d') }}</td>
+                                    <td><input type="checkbox" disabled=""{% if c.Vol=="1" %} checked=""{% endif %}></td>
+                                    <td><input type="checkbox" disabled=""{% if c.Incendie=="1" %} checked=""{% endif %}></td>
+                                    <td><input type="checkbox" disabled=""{% if c.Bris=="1" %} checked=""{% endif %}></td>
+                                    <td><input type="checkbox" disabled=""{% if c.Assistance=="1" %} checked=""{% endif %}></td>
+                                    <td><input type="checkbox" disabled=""{% if c.Tous=="1" %} checked=""{% endif %}></td>
+
+                                    <td> <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
+                                                <span class="caret"></span></button>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{{ path('SuppContrats',{'id':c.id}) }}">Supprimer</a></li>
+                                                <li><a href="{{ path('ModifContrats',{'id':c.id}) }}">Modifier</a></li>
+
+                                            </ul>
+                                        </div>
+                                    </td>
+
+
+
+
+
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+{% endblock content%}

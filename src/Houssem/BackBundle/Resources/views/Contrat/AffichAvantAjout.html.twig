@@ -1,0 +1,57 @@
+{% extends 'HoussemBackBundle::BackLayout.html.twig' %}
+{% block content %}
+
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-body">
+                        <h4 class="card-title">Data Export</h4>
+                        <h6 class="card-subtitle">Export data to Copy, CSV, Excel, PDF & Print</h6>
+                        <div class="table-responsive m-t-40">
+                            <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+                                <thead>
+                                <tr>
+                                    <th>Nom</th>
+                                    <th>Prénom</th>
+                                    <th>Cin</th>
+                                    <th>Adresse</th>
+                                    <th>Tel</th>
+                                    <th>Ajouter</th>
+                                </tr>
+                                </thead>
+
+                                <tbody>
+                                {% for c in Clients %}
+                                <tr>
+
+                                        <td>{{ c.nom }}</td>
+                                        <td>{{ c.prenom }}</td>
+                                        <td>{{ c.cin }}</td>
+                                        <td>{{ c.adresse }}</td>
+                                        <td>{{ c.tel }}</td>
+                                        <td>
+
+
+                                            <a href="{{ path('AjoutContrats',{'id':c.id,'nom':c.nom,'prenom':c.prenom}) }}" ><button type="button" >Contrat</button></a>
+
+                                                <!-- /# card -->
+                                         </td>
+                                        <input id="prenom" hidden="" type="text"  value="{{ c.prenom }}">
+                                        <input id="nom" hidden="" type="text"  value="{{ c.nom }}">
+                                        <input id="idclient" hidden="" type="text"  value="{{ c.id }}">
+
+                                </tr>
+                                {% endfor %}
+
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock content%}

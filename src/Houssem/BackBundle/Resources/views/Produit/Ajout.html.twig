@@ -1,0 +1,38 @@
+{% extends 'HoussemBackBundle::BackLayout.html.twig' %}
+{% block content %}
+    <div class="container-fluid">
+        <!-- Start Page Content -->
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card card-outline-primary">
+                    <div class="card-header">
+                        <h4 class="m-b-0 text-white">Ajout Produit</h4>
+                    </div>
+                    <div class="card-body">
+
+    <div class="form-body">
+        <h3 class="card-title m-t-15">Infos-Produit</h3>
+        <hr>
+    </div>
+    <div>
+        {{ form_start(f) }}
+        {{ form_row(f.nom) }}
+        {{ form_row(f.categorie) }}
+        {{ form_row(f.description) }}
+        {{ form_row(f.image) }}
+        {{ form_row(f.Enregistrer) }}
+        {{ form_row(f.annuler) }}
+        {{ form_end(f) }}
+    </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+
+</div>
+
+            <!-- End PAge Content -->
+        </div>
+{% endblock %}
