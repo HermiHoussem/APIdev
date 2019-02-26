@@ -24,25 +24,30 @@
 
                                 <tbody>
                                 {% for c in Clients %}
-                                <tr>
+                                    {% for role in c.roles %}
+                                        {% if role=="CLIENT" %}
+                                            <tr>
 
-                                        <td>{{ c.nom }}</td>
-                                        <td>{{ c.prenom }}</td>
-                                        <td>{{ c.cin }}</td>
-                                        <td>{{ c.adresse }}</td>
-                                        <td>{{ c.tel }}</td>
-                                        <td>
+                                                <td>{{ c.nom }}</td>
+                                                <td>{{ c.prenom }}</td>
+                                                <td>{{ c.cin }}</td>
+                                                <td>{{ c.adresse }}</td>
+                                                <td>{{ c.tel }}</td>
+
+                                                <td>
 
 
-                                            <a href="{{ path('AjoutContrats',{'id':c.id,'nom':c.nom,'prenom':c.prenom}) }}" ><button type="button" >Contrat</button></a>
+                                                    <a href="{{ path('AjoutContrats',{'id':c.id,'nom':c.nom,'prenom':c.prenom}) }}" ><button type="button"class="btn btn-primary btn-flat btn-addon m-b-10 m-l-5"><i class="ti-plus"></i> Contrat</button></a>
 
-                                                <!-- /# card -->
-                                         </td>
-                                        <input id="prenom" hidden="" type="text"  value="{{ c.prenom }}">
-                                        <input id="nom" hidden="" type="text"  value="{{ c.nom }}">
-                                        <input id="idclient" hidden="" type="text"  value="{{ c.id }}">
+                                                    <!-- /# card -->
+                                                </td>
+                                                <input id="prenom" hidden="" type="text"  value="{{ c.prenom }}">
+                                                <input id="nom" hidden="" type="text"  value="{{ c.nom }}">
+                                                <input id="idclient" hidden="" type="text"  value="{{ c.id }}">
 
-                                </tr>
+                                            </tr>
+                                        {% endif %}
+                                    {% endfor %}
                                 {% endfor %}
 
                                 </tbody>

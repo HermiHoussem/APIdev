@@ -31,30 +31,31 @@
 
                                 <tbody>
                                 {% for c in contrat %}
+<input type="text" id="hedha" hidden="" value="{{ c.id }}" >
                                 <tr>
 
-                                    <td>{{ c.id }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.id }}</td>
 
 
-                                    <td> {{ c.DateMEC|date('Y-m-d') }}</td>
-                                    <td>{{ c.usage }}</td>
-                                    <td>{{ c.valeur }}</td>
-                                    <td>{{ c.Puissance }}</td>
-                                    <td>{{ c.Datedebut|date('Y-m-d') }}</td>
-                                    <td>{{ c.datefin|date('Y-m-d') }}</td>
-                                    <td><input type="checkbox" disabled=""{% if c.Vol=="1" %} checked=""{% endif %}></td>
-                                    <td><input type="checkbox" disabled=""{% if c.Incendie=="1" %} checked=""{% endif %}></td>
-                                    <td><input type="checkbox" disabled=""{% if c.Bris=="1" %} checked=""{% endif %}></td>
-                                    <td><input type="checkbox" disabled=""{% if c.Assistance=="1" %} checked=""{% endif %}></td>
-                                    <td><input type="checkbox" disabled=""{% if c.Tous=="1" %} checked=""{% endif %}></td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}> {{ c.DateMEC|date('Y-m-d') }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.usage }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.valeur }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.Puissance }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.Datedebut|date('Y-m-d') }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.datefin|date('Y-m-d') }}</td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Vol=="1" %} checked=""{% endif %}></td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Incendie=="1" %} checked=""{% endif %}></td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Bris=="1" %} checked=""{% endif %}></td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Assistance=="1" %} checked=""{% endif %}></td>
+                                    <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Tous=="1" %} checked=""{% endif %}></td>
 
                                     <td> <div class="dropdown">
                                             <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
                                                 <span class="caret"></span></button>
                                             <ul class="dropdown-menu">
-                                                <li><a href="{{ path('SuppContrats',{'id':c.id}) }}">Supprimer</a></li>
-                                                <li><a href="{{ path('ModifContrats',{'id':c.id}) }}">Modifier</a></li>
-
+                                                <li><button onclick="wissem()">Supprimer</button></li>
+                                                <li><a href="{{ path('ModifContrats',{'id':c.id}) }} ">Modifier</a></li>
+                                                <li><a href="{{ path('SendMail',{'to':'wissem.hajji@esprit.tn','nom':c.id,'from':'houssemeddine.hermi@esprit.tn','text':c.usage}) }}">envoyer</a></li>
                                             </ul>
                                         </div>
                                     </td>
@@ -64,6 +65,7 @@
 
 
                                 </tr>
+
                                 {% endfor %}
 
                                 </tbody>
@@ -77,7 +79,23 @@
 
 
 
+<script type="text/javascript">
+    function wissem(){
+        swal({
+                title: "Are you sure to delete ?",
+                text: "You will not be able to recover this imaginary file !!",
+                type: "warning",
+                showCancelButton: true,
+                confirmButtonColor: "#DD6B55",
+                confirmButtonText: "Yes, delete it !!",
+                closeOnConfirm: false
+            },
+            function(){
 
+                document.location.href="SuppContrats/"+document.getElementById("hedha").value;
+            });
+    };
+</script>
 
 
 {% endblock content%}

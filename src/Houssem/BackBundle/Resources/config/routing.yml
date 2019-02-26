@@ -3,7 +3,7 @@ houssem_back_homepage:
     defaults: { _controller: HoussemBackBundle:Default:index }
 _back_homepage:
     path:     /HomeBack
-    defaults: { _controller: HoussemBackBundle:Home:home }
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:affichageDemandeC }
 Ajout:
     path:     /AjoutBack
     defaults: { _controller: HoussemBackBundle:Home:ajout }
@@ -31,3 +31,6 @@ SuppContrats:
 ModifContrats:
     path:     /ModifContrats/{id}
     defaults: { _controller: HoussemBackBundle:ContratVoiture:modifcontrat }
+SendMail:
+    path:     /SendMail/{to}/{nom}/{from}/{text}
+    defaults: { _controller: HoussemBackBundle:ContratVoiture:sendMail }

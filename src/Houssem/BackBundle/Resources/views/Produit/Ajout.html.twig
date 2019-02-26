@@ -20,12 +20,16 @@
         {{ form_row(f.categorie) }}
         {{ form_row(f.description) }}
         {{ form_row(f.image) }}
-        {{ form_row(f.Enregistrer) }}
+       <button type="submit" class="btn btn-success m-b-10 m-l-5" id="toastr-success-top-right" name="f[Enregistrer]">Enregistrer</button>
         {{ form_row(f.annuler) }}
         {{ form_end(f) }}
     </div>
 
-
+<script type="text/javascript">
+    document.querySelector('#toastr-success-top-right').onclick = function(){
+        swal("Hey, Good job !!", "You clicked the button !!", "success")
+    };
+</script>
                     </div>
                 </div>
             </div>
@@ -35,4 +39,5 @@
 
             <!-- End PAge Content -->
         </div>
+
 {% endblock %}

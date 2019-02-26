@@ -13,6 +13,12 @@ Contact:
 Ressources:
     path:     /Ressources
     defaults: { _controller: HoussemFrontBundle:Produit:ressources }
+contratview:
+    path:     /contratview/{id}
+    defaults: { _controller: HoussemFrontBundle:Contrat:affichageContratById }
+Annuler:
+    path:     /Annuler/{nom}/{prenom}/{id}/{idCli}
+    defaults: { _controller: HoussemFrontBundle:Contrat:Annuler }
 user_logout:
     path:   /logout
 

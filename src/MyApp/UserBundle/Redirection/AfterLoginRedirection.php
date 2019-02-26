@@ -7,8 +7,8 @@ use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Http\Authentication\AuthenticationSuccessHandlerInterface;
 /**
  * Created by PhpStorm.
- * User: Nada
- * Date: 25/03/2017
+ * User: Houssem hermi
+ * Date: 25/01/2019
  * Time: 17:35
  */
 class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
@@ -67,20 +67,18 @@ class AfterLoginRedirection implements AuthenticationSuccessHandlerInterface
 
 // otherwise, if is a commercial user we redirect to the crm area
 
-        if (in_array('ROLE_USER', $rolesTab, true))
+        if (in_array('ADMIN', $rolesTab, true))
+
+            $redirection = new RedirectResponse($this->router->generate('_back_homepage'));
+
+
+        elseif (in_array('CLIENT', $rolesTab, true) )
 
             $redirection = new RedirectResponse($this->router->generate('front_homepage'));
 
-
-        elseif (in_array('ROLE_ADMIN', $rolesTab, true) )
-
-            $redirection = new RedirectResponse($this->router->generate('_back_homepage'));
-
 // otherwise we redirect user to the member area
 
-        else
 
-            $redirection = new RedirectResponse($this->router->generate('_back_homepage'));
 
         return $redirection;
 

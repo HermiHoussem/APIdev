@@ -2,9 +2,13 @@
 
 namespace Houssem\BackBundle\Form;
 
+
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
+use Symfony\Component\Form\Extension\Core\Type\IntegerType;
+use Symfony\Component\Form\Extension\Core\Type\NumberType;
+use Symfony\Component\Form\Extension\Core\Type\RangeType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
@@ -36,9 +40,12 @@ class ContratVoitureType extends AbstractType
                 )
 
 
-            ->add('valeur',TextType::class, array('label'=>'Saisir la valeur : '
-            ,'attr'=>array( "class"=>"form-control")))
-
+            ->add('valeur',IntegerType::class,[
+                'label'=>'Saisir la valeur de vhicule :',
+                'attr' => ['class' => 'form-control','min'=>0,'max'=>500000,],
+                'invalid_message' => 'You entered an invalid value, it should include %num% letters',
+                'invalid_message_parameters' => ['%num%' => 6],
+            ])
 
             ->add('puissance',ChoiceType::class,[
                 'choices' => [
@@ -51,6 +58,9 @@ class ContratVoitureType extends AbstractType
         ->add('Vol', CheckboxType::class, [
             'label'    => "  Vol",
             'required' => false,
+            'attr' => ['checked' => 'checked'],
+            'disabled'=>true
+
         ])
             ->add('Incendie', CheckboxType::class, [
                 'label'    => '  Incendie',
@@ -70,15 +80,22 @@ class ContratVoitureType extends AbstractType
             ])
 
             ->add('dateDebut',DateType::class, [
-                'label'=>'la date début',
-                'widget' => 'single_text',
+                'label'=>'La date Début :',
+                'data'=>new \DateTime(),
                 'attr' => ['class' => 'form-control'],
-                'disabled' => true
+                'disabled' => false,
+
 
 
             ])
-            ->add('dateFin',DateType::class, array('label'=>'Saisir la date fin de contrat  : '
-            ,'attr'=>array( "class"=>"form-control")))
+            ->add('dateFin',DateType::class, [
+                'label'=>'La date Fin :',
+                'data'=>new \DateTime(),
+                'attr' => ['class' => 'form-control'],
+                'disabled' => false
+
+
+            ])
 
 
 

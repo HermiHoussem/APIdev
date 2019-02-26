@@ -1,0 +1,89 @@
+{% extends 'HoussemFrontBundle::FrontLyout.html.twig' %}
+{% block content %}
+    <table id="example23" class="display nowrap table table-hover table-striped table-bordered" cellspacing="0" width="100%">
+        <thead>
+        <tr>
+            <th>num</th>
+            <th>Date mise en circulation</th>
+            <th>Usage</th>
+            <th>valeur</th>
+            <th>puissance</th>
+            <th> date debut</th>
+            <th> date fin</th>
+            <th>vol</th>
+            <th>incendie</th>
+            <th>bris</th>
+            <th>assistance</th>
+            <th>Tout risques</th>
+            <th>Action</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        {% for c in contrat %}
+            <input type="text" id="hedha" hidden="" value="{{ c.id }}" >
+            <tr>
+
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.id }}</td>
+
+
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}> {{ c.DateMEC|date('Y-m-d') }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.usage }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.valeur }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.Puissance }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.Datedebut|date('Y-m-d') }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}>{{ c.datefin|date('Y-m-d') }}</td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Vol=="1" %} checked=""{% endif %}></td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Incendie=="1" %} checked=""{% endif %}></td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Bris=="1" %} checked=""{% endif %}></td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Assistance=="1" %} checked=""{% endif %}></td>
+                <td {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %} bgcolor="#8b0000"{% endif %}><input type="checkbox" disabled=""{% if c.Tous=="1" %} checked=""{% endif %}></td>
+                <td> <div class="dropdown">
+                        <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
+                            <span class="caret"></span></button>
+                        <ul class="dropdown-menu">
+                            <li><button onclick="wissem()">Supprimer</button></li>
+                            <li><a href="{{ path('ModifContrats',{'id':c.id}) }} ">Modifier</a></li>
+                            <li><a href="{{ path('Annuler',{'idCli':app.user.id,'nom':app.user.nom,'prenom':app.user.prenom,'id':c.id}) }} ">Annuler</a></li>
+                            <li><a href="{{ path('SendMail',{'to':'wissem.hajji@esprit.tn','nom':c.id,'from':'houssemeddine.hermi@esprit.tn','text':c.usage}) }}">envoyer</a></li>
+                            {% if "now"|date('Y-m-d') > c.datefin|date('Y-m-d') %}
+                            <li>  <form action="https://www.paypal.com/cgi-bin/webscr" method="post">
+
+                                    <!-- Identify your business so that you can collect the payments. -->
+                                    <input type="hidden" name="business" value="herschelgomez@xyzzyu.com">
+
+                                    <!-- Specify a Buy Now button. -->
+                                    <input type="hidden" name="cmd" value="_xclick">
+
+                                    <!-- Specify details about the item that buyers will purchase. -->
+                                    <input type="hidden" name="item_name" value="Hot Sauce-12oz. Bottle">
+                                    <input type="hidden" name="amount" value="5.95">
+                                    <input type="hidden" name="currency_code" value="USD">
+
+                                    <!-- Display the payment button. -->
+                                    <input type="image" name="submit" border="0"
+                                           src="https://www.paypalobjects.com/en_US/i/btn/btn_buynow_LG.gif"
+                                           alt="Buy Now">
+                                    <img alt="" border="0" width="1" height="1"
+                                         src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" >
+
+                                </form></li>{% endif %}
+                        </ul>
+                    </div>
+                </td>
+
+
+
+
+
+
+
+
+            </tr>
+
+        {% endfor %}
+
+        </tbody>
+    </table>
+{% endblock content %}

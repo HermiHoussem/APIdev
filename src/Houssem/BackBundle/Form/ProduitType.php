@@ -23,8 +23,7 @@ class ProduitType extends AbstractType
                     'Habitation' => 'Habitation',
                     'Automobile' => 'Automobile',
                 'Voyage' => 'Voyage']]])->add('description')->add('image', FileType::class, array('label' => 'Image(JPG)','data_class' => null))
-            ->add('Enregistrer',SubmitType::class,array('label'=>'Enregistrer'
-            ,'attr'=>array( "class"=>"btn btn-success")))
+
         ->add('annuler',ResetType::class,array('label'=>'Annuler'
         ))
         ;

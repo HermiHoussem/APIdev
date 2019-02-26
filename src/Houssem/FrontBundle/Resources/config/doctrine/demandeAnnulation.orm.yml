@@ -1,0 +1,20 @@
+Houssem\FrontBundle\Entity\demandeAnnulation:
+    type: entity
+    table: null
+    repositoryClass: Houssem\FrontBundle\Repository\demandeAnnulationRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        nomCli:
+            type: string
+            length: 255
+        prenomCli:
+            type: string
+            length: 255
+        idCnt:
+            type: integer
+    lifecycleCallbacks: {  }

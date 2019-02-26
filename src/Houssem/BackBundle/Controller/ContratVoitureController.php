@@ -5,6 +5,7 @@ namespace Houssem\BackBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Houssem\BackBundle\Entity\ContratVoiture;
 use Houssem\BackBundle\Form\ContratVoitureType;
+use Symfony\Bundle\SwiftmailerBundle\SwiftmailerBundle;
 use Symfony\Component\HttpFoundation\Request;
 
 class ContratVoitureController extends Controller
@@ -57,4 +58,25 @@ class ContratVoitureController extends Controller
         return $this->render('@HoussemBack/Contrat/AjoutContrat.html.twig', array('fa'=>$form->createView()));
 
     }
+    public function sendMailAction($to,$nom,$from,$text) {
+
+
+
+
+            $message = \Swift_Message::newInstance()
+                ->setSubject($nom)
+                ->setFrom($from)
+                ->setTo($to)
+                ->setBody($text);
+            $this->get('mailer')->send($message);
+
+
+        }
+    function affichageDemandeCAction(){
+        $em=$this->getDoctrine()->getManager();
+        $demande=$em->getRepository("HoussemFrontBundle:demandeAnnulation")->findAll();
+        return $this->render('@HoussemBack\Produit\Home.html.twig',array('demandes'=>$demande));
+    }
+
+
 }

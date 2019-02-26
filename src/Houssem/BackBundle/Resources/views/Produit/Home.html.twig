@@ -187,66 +187,38 @@
             <div class="col-lg-9">
                 <div class="card">
                     <div class="card-title">
-                        <h4>Recent Orders </h4>
+                        <h4>Demande d'annulation </h4>
                     </div>
                     <div class="card-body">
                         <div class="table-responsive">
                             <table class="table">
                                 <thead>
                                 <tr>
-                                    <th>#</th>
-                                    <th>Name</th>
-                                    <th>Product</th>
-                                    <th>quantity</th>
-                                    <th>Status</th>
+                                    <th>Nom</th>
+                                    <th>Prenom</th>
+                                    <th>id_Contrat</th>
+                                    <th>Action</th>
+
                                 </tr>
                                 </thead>
                                 <tbody>
 
                                 <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img src="{{ asset('images/avatar/4.jpg')}}" alt=""></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td><span>iBook</span></td>
-                                    <td><span>456 pcs</span></td>
-                                    <td><span class="badge badge-success">Done</span></td>
+                                    {% for d in demandes %}
+                                        <input type="text" id="hedha" hidden="" value="{{ d.idCnt }}" >
+                                    <td>{{ d.nomCli }}</td>
+                                    <td><span>{{ d.prenomCli }}</span></td>
+                                    <td><span>{{ d.idCnt }}</span></td>
+                                    <td><button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Action
+                                            <span class="caret"></span></button>
+                                        <ul class="dropdown-menu">
+                                            <li><button onclick="wissem()">Supprimer</button></li>
+
+                                        </ul>
+                      </td>
+                                    {% endfor %}
                                 </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img src="{{ asset('images/avatar/2.jpg')}}" alt=""></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td><span>iPhone</span></td>
-                                    <td><span>456 pcs</span></td>
-                                    <td><span class="badge badge-success">Done</span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img src="{{ asset('images/avatar/3.jpg')}}" alt=""></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td><span>iMac</span></td>
-                                    <td><span>456 pcs</span></td>
-                                    <td><span class="badge badge-warning">Pending</span></td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <div class="round-img">
-                                            <a href=""><img src="{{ asset('images/avatar/4.jpg')}}" alt=""></a>
-                                        </div>
-                                    </td>
-                                    <td>John Abraham</td>
-                                    <td><span>iBook</span></td>
-                                    <td><span>456 pcs</span></td>
-                                    <td><span class="badge badge-success">Done</span></td>
-                                </tr>
+
                                 </tbody>
                             </table>
                         </div>
@@ -379,4 +351,23 @@
 
         <!-- End PAge Content -->
     </div>
+    <script type="text/javascript">
+        function wissem(){
+            swal({
+                    title: "Are you sure to delete ?",
+                    text: "You will not be able to recover this imaginary file !!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#DD6B55",
+                    confirmButtonText: "Yes, delete it !!",
+                    closeOnConfirm: false
+                },
+                function(){
+
+                    document.location.href="SuppContrats/"+document.getElementById("hedha").value;
+                });
+        };
+        </script>
+
+
 {% endblock %}

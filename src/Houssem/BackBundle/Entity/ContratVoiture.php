@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Entity
  * @ORM\Table(name="contrat_voiture")
+ *
  */
 class ContratVoiture
 {
@@ -22,12 +23,15 @@ class ContratVoiture
     private $id;
 public function __construct()
 {
-    $this->dateDebut=new \DateTime();
+
+    $this->Notification="Non";
+    $this->Vol=true;
 }
     /**
      * @var int
      *
      * @ORM\Column(name="id_client", type="integer")
+     *
      */
     private $idClient;
 
@@ -46,9 +50,9 @@ public function __construct()
     private $usage;
 
     /**
-     * @var float
+     * @var integer
      *
-     * @ORM\Column(name="valeur", type="float")
+     * @ORM\Column(name="valeur", type="integer")
      */
     private $valeur;
 
@@ -106,6 +110,28 @@ public function __construct()
     private $Tous;
 
 
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="Notification", type="string",length=255)
+     */
+    private $Notification;
+
+    /**
+     * @return string
+     */
+    public function getNotification()
+    {
+        return $this->Notification;
+    }
+
+    /**
+     * @param string $Notification
+     */
+    public function setNotification($Notification)
+    {
+        $this->Notification = $Notification;
+    }
 
 
     /**
