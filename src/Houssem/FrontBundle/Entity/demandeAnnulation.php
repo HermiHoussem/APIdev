@@ -2,30 +2,52 @@
 
 namespace Houssem\FrontBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+
 /**
  * demandeAnnulation
+ *
+ * @ORM\Table(name="demande_annulation")
+ * @ORM\Entity(repositoryClass="Houssem\FrontBundle\Repository\demandeAnnulationRepository")
  */
 class demandeAnnulation
 {
     /**
      * @var int
+     *
+     * @ORM\Column(name="id", type="integer")
+     * @ORM\Id
+     * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="nomCli", type="string", length=255)
      */
     private $nomCli;
 
     /**
      * @var string
+     *
+     * @ORM\Column(name="prenomCli", type="string", length=255)
      */
     private $prenomCli;
 
     /**
      * @var int
+     *
+     * @ORM\Column(name="idCnt", type="integer")
      */
     private $idCnt;
+
+    /**
+     * @var int
+     *
+     * @ORM\Column(name="demand", type="integer")
+     */
+    private $demand;
 
 
     /**
@@ -108,6 +130,30 @@ class demandeAnnulation
     public function getIdCnt()
     {
         return $this->idCnt;
+    }
+
+    /**
+     * Set demand
+     *
+     * @param integer $demand
+     *
+     * @return demandeAnnulation
+     */
+    public function setNbr($demand)
+    {
+        $this->demand = $demand;
+
+        return $this;
+    }
+
+    /**
+     * Get demand
+     *
+     * @return int
+     */
+    public function getNbr()
+    {
+        return $this->demand;
     }
 }
 
