@@ -1,0 +1,39 @@
+
+{% extends 'index.html.twig' %}
+{% block content %}
+
+<main class="main-content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>Insurance</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <h3 class="entry-title">Liste des produit en promotion  </h3>
+
+            <div class="filterable-items">
+            {% for promotion in promotions %}
+
+                <div class="insurance-item filterable-item shopping-center">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"> <img src="{{ asset('uploads/images/' ~ promotion.image ) }}" width="100" height="100"></div>
+
+                        <h3 class="insurance-title">{{ promotion.produit.nom }}</h3>
+                        <div ><p> type : {{ promotion.produit.type }} <br> remise : {{ promotion.PourcentageRemise }}% <br> prix :{{ promotion.prix }}<br> datedebut :{{ promotion.DateDebutPromotion|date('Y-m-d') }} <br> datefin :{{ promotion.DateFinPromotion|date('Y-m-d') }}</p></div>
+                        <a href="{{ path('moez_front_info_promotion',{'id' : promotion.idPromotion}) }}" class="button">choisir</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            <div class="pagination">
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
+
+    </div> <!-- .page -->
+</main>
+{% endblock %}

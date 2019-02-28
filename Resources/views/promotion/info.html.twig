@@ -1,0 +1,15 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    <div class="hero hero-slider">
+        <ul class="slides">
+            <li data-bg-image="{{ asset('uploads/images/' ~ promotion.image ) }}">
+                <div class="container">
+                    <div class="slide-content">
+                        <h2 class="slide-title"> <strong>{{ promotion.produit.nom }}</strong></h2>
+                        <p> type : {{ promotion.produit.type }} <br> remise : {{ promotion.PourcentageRemise }}% <br> prix :{{ promotion.prix }}<br> datedebut :{{ promotion.DateDebutPromotion|date('Y-m-d') }} <br> datefin :{{ promotion.DateFinPromotion|date('Y-m-d') }}</p>  <a href="{{ path('moez_front_achat_promotion',{'id' : promotion.idPromotion}) }}" class="button">faire un contrat</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock %}

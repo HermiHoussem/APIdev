@@ -1,0 +1,95 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+<main class="main-content">
+    <div class="breadcrumbs">
+        <div class="container">
+            <a href="index.html">Home</a>
+            <span>Insurance</span>
+        </div>
+    </div>
+
+    <div class="page">
+        <div class="container">
+            <h3 class="entry-title">Choose your own insurance plan</h3>
+            <p>Nam posuere purus vitae est sollicitudin placerat. Praesent posuere porta dignissim. Phasellus viverra, urna a convallis tincidunt, ante mi tempor turpis, nec tempor mauris ligula ut sapien. Etiam euismod mi eu ante mollis commodo. Suspendisse porta nisi vitae dui hendrerit, eget ornare orci semper. Phasellus pharetra, erat sit amet rutrum porttitor, est eros consectetur elit, molestie consequat erat tellus in dui. Vestibulum a vehicula sem. Nullam commodo quis purus in volutpat. Integer semper lacus a lorem efficitur auctor curabitur tincidunt ligula non.</p>
+
+            <div class="filter-links filterable-nav">
+                <select class="mobile-filter">
+                    <option value="*">Show all</option>
+                    <option value=".skyscraper">skyscraper</option>
+                    <option value=".shopping-center">shopping-center</option>
+                    <option value=".apartment">apartment</option>
+                </select>
+                <strong>Select Category: </strong>
+                <a href="#" class="current wow fadeInRight" data-filter="*">Show all</a>
+                <a href="#" class="wow fadeInRight" data-wow-delay=".2s" data-filter=".skyscraper">skyscraper</a>
+                <a href="#" class="wow fadeInRight" data-wow-delay=".4s" data-filter=".shopping-center">shopping-center</a>
+                <a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".apartment">apartment</a>
+            </div>
+
+            <div class="filterable-items">
+                <div class="insurance-item filterable-item shopping-center">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-sofa"></i></div>
+                        <h3 class="insurance-title">Safe Hourse</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+
+
+                <div class="insurance-item filterable-item skyscraper">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-pool"></i></div>
+                        <h3 class="insurance-title">Happy Holiday</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+
+                <div class="insurance-item filterable-item apartment">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-nurse"></i></div>
+                        <h3 class="insurance-title">Medical 24</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+
+                <div class="insurance-item filterable-item shopping-center">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-weigher"></i></div>
+                        <h3 class="insurance-title">Financial Balance</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+
+                <div class="insurance-item filterable-item apartment">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-car"></i></div>
+                        <h3 class="insurance-title">Car Protect</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+
+                <div class="insurance-item filterable-item skyscraper">
+                    <div class="insurance-content">
+                        <div class="insurance-icon"><i class="icon-shirt"></i></div>
+                        <h3 class="insurance-title">Bussiness Insurance</h3>
+                        <p>Etiam aliquam ante in mattis molestie. Vivamus in laoreet eros. Proin tempus velit dui lobortis justo laoreet nes phasellus luctus neque.</p>
+                        <a href="#" class="button">See details</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pagination">
+                <span class="current">1</span>
+                <a href="#">2</a>
+                <a href="#">3</a>
+            </div>
+        </div>
+    </div> <!-- .page -->
+</main>
+{% endblock %}

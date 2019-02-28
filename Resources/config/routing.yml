@@ -1,0 +1,18 @@
+moez_front_homepage:
+    path:     /home
+    defaults: { _controller: MoezFrontBundle:Default:index }
+moez_front_affiche_paquet:
+    path:     /affichePaquetFront
+    defaults: { _controller: MoezFrontBundle:paquet:affiche }
+moez_front_affiche_promotion:
+    path:     /affichePromotionFront
+    defaults: { _controller: MoezFrontBundle:promotion:affiche }
+moez_front_info_promotion:
+    path:     /infoPromotion/{id}
+    defaults: { _controller: MoezFrontBundle:promotion:info }
+moez_front_info_paquet:
+    path:     /infoPaquet/{id}
+    defaults: { _controller: MoezFrontBundle:paquet:info }
+moez_front_achat_promotion:
+    path:     /achat/{id}
+    defaults: { _controller: MoezFrontBundle:promotion:achat }

@@ -1,0 +1,42 @@
+
+{% extends 'index.html.twig' %}
+{% block content %}
+
+    <main class="main-content">
+        <div class="breadcrumbs">
+            <div class="container">
+                <a href="index.html">Home</a>
+                <span>Insurance</span>
+            </div>
+        </div>
+
+        <div class="page">
+            <div class="container">
+                <h3 class="entry-title">Liste des offres   </h3>
+
+                <div class="filterable-items">
+                    {% for paquet in paquets %}
+
+                        <div class="insurance-item filterable-item shopping-center">
+                            <div class="insurance-content">
+                                <div class="insurance-icon"> <img src="{{ asset('uploads/images/' ~ paquet.image ) }}" width="100" height="100"></div>
+
+                                <h3 class="insurance-title">{{ paquet.nom }}</h3>
+                                <div ><p> offre :{% if not paquet.ProduitTypeVie == null  %} {{ paquet.ProduitTypeVie.nom }}, {% endif %}
+                                        {% if not paquet.ProduitTypeVoiture == null  %} {{ paquet.ProduitTypeVoiture.nom }}{% if not paquet.ProduitTypeVoyage == null %}, {% endif %} {% endif %}
+                                        {% if not paquet.ProduitTypeVoyage == null  %} {{ paquet.ProduitTypeVoyage.nom }} {% endif %}<br>
+                                         prix : {{ paquet.prixOffre }} DT <br> datedebut :{{ paquet.DateDebutOffre|date('Y-m-d') }} <br> datefin :{{ paquet.DateFinOffre|date('Y-m-d') }}</p></div>
+                                <a href="{{ path('moez_front_info_paquet',{'id' : paquet.idPaquet}) }}" class="button">choisir</a>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <div class="pagination">
+                    <span class="current">1</span>
+                    <a href="#">2</a>
+                    <a href="#">3</a>
+                </div>
+
+            </div> <!-- .page -->
+    </main>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'index.html.twig' %}
+{% block content %}
+    <div class="hero hero-slider">
+        <ul class="slides">
+            <li data-bg-image="{{ asset('uploads/images/' ~ paquet.image ) }}">
+                <div class="container">
+                    <div class="slide-content">
+                        <h2 class="slide-title"> <strong>{{ paquet.nom }}</strong></h2>
+                        <p> offre :{% if not paquet.ProduitTypeVie == null  %} {{ paquet.ProduitTypeVie.nom }} , {% endif %}
+                            {% if not paquet.ProduitTypeVoiture == null  %} {{ paquet.ProduitTypeVoiture.nom }}{% if not paquet.ProduitTypeVoyage == null %}, {% endif %}  {% endif %}
+                            {% if not paquet.ProduitTypeVoyage == null  %} {{ paquet.ProduitTypeVoyage.nom }} {% endif %}<br>
+                            prix : {{ paquet.prixOffre }} DT <br>
+                            datedebut :{{ paquet.DateDebutOffre|date('Y-m-d') }}
+                            <br> datefin :{{ paquet.DateFinOffre|date('Y-m-d') }}</p>
+                      <a href="#" class="button">faire un contrat</a>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+{% endblock %}
