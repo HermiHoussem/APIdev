@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" fillWidth="false" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" spacing="10.0" stylesheets="@login.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="login.LoginController">
+   <children>
+      <ImageView fitHeight="80.0" fitWidth="80.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@im1.png" />
+         </image>
+      </ImageView>
+      <Label styleClass="title" text="Login Form" />
+      <Label prefHeight="62.0" prefWidth="238.0" text="You can login to your account by type your username and password" wrapText="true" />
+      <VBox prefHeight="180.0" prefWidth="295.0" spacing="10.0">
+         <children>
+            <TextField fx:id="usernameField" promptText="Username" styleClass="field" />
+            <PasswordField fx:id="passwordField" promptText="Password" styleClass="field" />
+            <CheckBox mnemonicParsing="false" text="Remember me">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </CheckBox>
+            <Button mnemonicParsing="false" onAction="#onLogin" prefHeight="45.0" prefWidth="370.0" styleClass="btn" text="Login" />
+         </children>
+      </VBox>
+      <Label styleClass="footer-text" text="2018-2019" />
+   </children>
+   <padding>
+      <Insets bottom="30.0" left="30.0" right="30.0" top="30.0" />
+   </padding>
+</VBox>

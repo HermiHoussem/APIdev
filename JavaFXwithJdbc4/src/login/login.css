@@ -1,0 +1,30 @@
+
+.title {
+    
+    -fx-font-size: 22px 
+        
+}
+.footer-text {
+    -fx-font-size: 16px;
+    -fx-text-fill: #666
+    
+}
+.field {
+    fx-foot-size : 18px ;
+    
+    
+    
+}
+
+.check:hover {
+    -fx-cursor: hand 
+    }
+
+
+.btn{
+    -fx-background-color: #0066ff;
+    -fx-text-fill:  #fff;
+    -fx-background-radius: 5;
+    -fx-font-size:20px;
+    
+}
