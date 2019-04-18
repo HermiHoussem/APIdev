@@ -1,0 +1,50 @@
+.parent{
+    
+    
+    
+    
+}
+
+.main_btn{
+    
+    -fx-background-color: transparent;
+    -fx-background-radius: 0px;
+    -fx-text-fill: white;
+    
+    
+}
+
+.main_btn:hover{
+    
+    -fx-text-fill: #f29393;
+    -fx-background-radius: 0px;
+    -fx-border-color: #f29393;
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-border-radius: 0px;
+    
+    
+    
+}
+
+
+.main_btn:pressed{
+    
+   
+}
+
+.id_selected_btn{
+        -fx-background-color: transparent;
+
+      -fx-text-fill: #f29393;
+    -fx-background-radius: 0px;
+    -fx-border-color: #f29393;
+    -fx-border-width: 0px 0px 3px 0px;
+    -fx-border-radius: 0px;
+    
+} 
+
+
+
+
+
+
